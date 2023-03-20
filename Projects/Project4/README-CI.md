@@ -9,4 +9,3 @@
         - And now "Docker" commands work from Windows using WSL2 engine.
     - Build an image from the Dockerfile
     - Run the container
-    - View the project running in the container
