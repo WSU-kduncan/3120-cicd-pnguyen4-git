@@ -1,0 +1,80 @@
+.form-control-dark {
+  border-color: var(--bs-gray);
+}
+.form-control-dark:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+}
+
+.text-small {
+  font-size: 85%;
+}
+
+.dropdown-toggle {
+  outline: 0;
+}
+#mysite-div {
+  font-size: 30px;
+  width: 300px;
+  height: 100px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: mymove 2s linear infinite;
+
+  line-height: 100px;
+  text-align: center;
+
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes mymove {
+  from {color: rgb(0, 255, 213);}
+  to {color: rgb(204, 0, 255);}
+}
+
+.div-container {
+  display: flex;
+  width: 100%;
+  order: 3;
+  justify-content: space-evenly;
+}
+
+body {
+  background-image: url('./assets/Images/background.jpg');
+}
+
+.note {
+  width: 450px;
+}
+
+.note-container{
+  background-image: url('./assets/Images/notes.jpg');
+  background-size: 450px;
+  height: 600px;
+}
+
+.item-container {
+  display: flex;
+  width: 100%;
+  order: 3;
+  justify-content: space-evenly;
+
+}
+.item {
+  flex-grow: 2;
+}
+.text-area {
+  padding-top: 150px;
+  background: none;
+  font-size: 15px;
+  font-family: "Lucida Handwriting";
+}
