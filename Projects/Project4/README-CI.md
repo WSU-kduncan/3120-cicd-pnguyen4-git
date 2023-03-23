@@ -8,4 +8,14 @@
         - Inside of Docker Desktop setting, Select "Use WSL 2 based engine" 
         - And now "Docker" commands work from Windows using WSL2 engine.
     - Build an image from the Dockerfile
+        - Create Dockerfile in my Project4 directory
+        - Choose Ubuntu as a base image for my container
+        - Install apache as a web server
+        - Copy my website file into my container
+        - Set the webserver as the entrypoint
+        - Then run command "docker build -t myimage ."
     - Run the container
+        - Using command "docker run -d -p 80:80 myimage". This will start a container based on my image and map port 80 in the container to port 80 on the host 
+        - Then using "docker ps -a" to all list the running containers on the system 
+    - View the project running in the container 
+        - Open a web browser and navigate to the IP address of my Docker host and specify my port in the URL. 
