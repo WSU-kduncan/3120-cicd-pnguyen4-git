@@ -6,7 +6,7 @@ on:
       - 'main'
     
 env:
-  DOCKERHUB_REPO: myimage
+  DOCKERHUB_REPO: pnguyen4/myimage
 
 jobs:
 
@@ -17,16 +17,12 @@ jobs:
     steps:
     - name: Checkout repo to runner
       uses: actions/checkout@v2
-      
-    - name: Login to DockerHub
-      uses: docker/login-action@v1
+
+    - name: Push to DockerHub
+      uses: docker/build-push-action@v1
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-      
-    - name: build and push
-      id: docker_build
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPO }}:latest
+        repository: ${{ env.DOCKERHUB_REPO }}
+        tag_with_ref: true
+        
