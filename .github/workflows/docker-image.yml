@@ -25,5 +25,4 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         repository: ${{ env.DOCKERHUB_REPO }}
         tag_with_ref: true
-        context: ./Projects/Project4/.github/workflows/Dockerfile
         
