@@ -28,5 +28,4 @@ jobs:
         tag_with_ref: true
         context: .
         file: ./Dockerfile
-        push: true
         
