@@ -1,0 +1,29 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - 'main'
+    
+env:
+  DOCKERHUB_REPO: pnguyen4/myimage
+
+jobs:
+
+  build-push:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo to runner
+      uses: actions/checkout@v2
+
+    - name: Push to DockerHub
+      uses: docker/build-push-action@v4
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        repository: ${{ env.DOCKERHUB_REPO }}
+        tag_with_ref: true
+        context: ./Projects/Project4/.github/workflows/Dockerfile
+        
