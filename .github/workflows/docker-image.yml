@@ -6,7 +6,7 @@ on:
       - 'main'
     
 env:
-  DOCKERHUB_REPO: pnguyen4/myimage
+  DOCKERHUB_REPO: pnguyen4-repo/myimage
 
 jobs:
 
