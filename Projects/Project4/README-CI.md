@@ -42,8 +42,8 @@
     - In my GitHub repo, hit "Settings" button
     - On the left side bar, Scroll down and find "Secrets and variables", click on that and choose "Actions"
     - Hit "New repository secret"
-    - Pick a name for my secrets
-    - enter my DockerHub password for the secret 
+    - enter "DOCKERHUB_USERNAME" and "DOCKERHUB_TOKEN"
+    - enter my DockerHub username and token for the secrets 
     - Click "Add secret"
 - Behaviour of GitHub Workflow
     - The Github workflow is responsible for biulding and pushing the Docker image to DockerHub, it triggered when I push changes to my GitHub repo
