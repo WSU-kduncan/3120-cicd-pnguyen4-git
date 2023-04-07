@@ -2,8 +2,10 @@ name: Build and Push Docker Image
 
 on:
   push:
+    branches:
+      - 'main'
     tags:
-      - '*'
+      - 'v.*'
     
 env:
   DOCKERHUB_REPO: pnguyen4-repo
@@ -34,8 +36,11 @@ jobs:
         images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPO }}
         tags: |
           latest
-          ${{ github.ref }}
-          ${{ github.sha }}
+          type=ref,event=branch
+          type=ref,event=tag
+          type=ref,event=pr
+          type=sha
+          
     - name: Build and push
       id: docker_build 
       uses: docker/build-push-action@v2
