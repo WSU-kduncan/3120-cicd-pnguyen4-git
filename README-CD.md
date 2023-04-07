@@ -1,0 +1,12 @@
+# Part 1 - Semantic Versioning 
+- CD Project Overview 
+    - This CD project is to build and deployment process of the application using GitHub Actions and Docker. The reason to doing this so we can make sure that everything is always up-to-date and consistent to our users. The tools for this project are GitHub Actions, Docker, and Semantic Versioning
+- To generate a tag in git/GitHub
+    - Checkout the branch by using "git status"
+    - Make a change then commit using "git commit -a -m "add..."
+    - Creating tag for my commit using "git tag -a v1.5 -m "add..."
+    - Push the tag to the remote repo using "git push origin v1.5"
+- Behavior of GitHub workflow 
+    - It is triggered when a new tag is pushed to the repo
+- Link Docker Hub Repo
+    - https://hub.docker.com/repository/docker/nguyepu/pnguyen4-repo/general    
