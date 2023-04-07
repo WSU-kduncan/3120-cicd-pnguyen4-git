@@ -2,8 +2,8 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches:
-      - 'main'
+    tags:
+      - '*'
     
 env:
   DOCKERHUB_REPO: pnguyen4-repo
@@ -27,12 +27,21 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    - name: Generate image tags
+      id: metadata
+      uses: docker/metadata-action@v3
+      with:
+        images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPO }}
+        tags: |
+          latest
+          ${{ github.ref }}
+          ${{ github.sha }}
     - name: Build and push
       id: docker_build 
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPO }}:latest
+        tags: ${{ steps.metadata.outputs.tags }}
         context: .
         file: ./Dockerfile
         
