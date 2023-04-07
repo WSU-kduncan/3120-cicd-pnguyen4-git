@@ -24,4 +24,3 @@
     - Change permission "sudo chmod 777 /var/run/docker.sock"
 
 - Container restart script
-    
