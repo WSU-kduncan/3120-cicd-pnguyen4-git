@@ -9,10 +9,8 @@
 - Behavior of GitHub workflow 
     - It is triggered when a new tag is pushed to the repo
 - Link Docker Hub Repo
-<<<<<<< Updated upstream
     - https://hub.docker.com/repository/docker/nguyepu/pnguyen4-repo/general    
-=======
-    - https://hub.docker.com/repository/docker/nguyepu/pnguyen4-repo/general    
+
 
 # Part 2 - Deployment
 - Install Docker to your instance
@@ -26,6 +24,3 @@
     - Change permission "sudo chmod 777 /var/run/docker.sock"
 
 - Container restart script
-    
-
->>>>>>> Stashed changes
