@@ -7,8 +7,6 @@
     - Creating tag for my commit using "git tag -a v1.5 -m "add..."
     - Push the tag to the remote repo using "git push origin v1.5"
 - Behavior of GitHub workflow 
-    - It is triggered when a new tag is pushed to the repo
+    - It is triggered when there is a new commit to the main branch of the repo. 
 - Link Docker Hub Repo
     - https://hub.docker.com/repository/docker/nguyepu/pnguyen4-repo/general    
-
-- update
