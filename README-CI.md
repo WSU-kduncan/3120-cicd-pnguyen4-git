@@ -1,0 +1,50 @@
+# Part 1 - Dockerize it
+- CI Project Overview
+    - This project is to use Docker to build a container image that runs a webserver and serves a website. Inside the 'website' folder which website content is located and the container image is built using Dockerfile. The reason of this project is to get used to Docker and apache/nginx to deploy a website.
+
+- Run Project Locally
+    - Installed Docker:
+        - Download Docker Desktop for Windows
+        - Inside of Docker Desktop setting, Select "Use WSL 2 based engine" 
+        - And now "Docker" commands work from Windows using WSL2 engine.
+    - Build an image from the Dockerfile
+        - Create Dockerfile in my Project4 directory
+        - Choose Ubuntu as a base image for my container
+        - Install apache as a web server
+        - Copy my website file into my container
+        - Set the webserver as the entrypoint
+        - Then run command "docker build -t myimage ."
+    - Run the container
+        - Using command "docker run -d -p 8080:80 myimage". This will start a container based on my image and map port 80 in the container to port 80 on the host 
+        - Then using "docker ps -a" to all list the running containers on the system 
+    - View the project running in the container 
+        - Open a web browser and navigate to the IP address of my Docker host and specify my port in the URL. 
+
+# Part 2 - GitHub Actions and DockerHub
+- Process to create public repo in DockerHub
+    - Signing up for DockerHub Account, then log in 
+    - Click "Create Repository" 
+    - Pick a name for my repo 
+    - Select "Public"
+    - Click "Create"
+- Authenticate with DockerHub via CLI
+    - Click on my profile name and icon, choose "Account Settings"
+    - Click on "Security"
+    - Click "New Access Token"
+    - Set a name for the token 
+    - Click "Create"
+    - On my terminal, run "docker login -u nguyepu"
+    - At the password prompt, enter the personal access token, then it will pop up "Login Succeeded"
+- Push container image to DockerHub (without GitHub Actions)
+    - After successfully login to Dockerhub
+    - using "docker push My_DockerHub_repo:Tag"
+- Configuring GitHub Secrets 
+    - In my GitHub repo, hit "Settings" button
+    - On the left side bar, Scroll down and find "Secrets and variables", click on that and choose "Actions"
+    - Hit "New repository secret"
+    - enter "DOCKERHUB_USERNAME" and "DOCKERHUB_TOKEN"
+    - enter my DockerHub username and token for the secrets 
+    - Click "Add secret"
+- Behaviour of GitHub Workflow
+    - The Github workflow is responsible for biulding and pushing the Docker image to DockerHub, it triggered when I push changes to my GitHub repo
+    - 
