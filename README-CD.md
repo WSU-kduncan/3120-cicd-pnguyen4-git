@@ -47,5 +47,29 @@
     - #Run the new image
     - docker run -d -p 80:80 --name site nguyepu/pnguyen4-repo:latest
 
-- 
+- Setting up a webhook on the instance 
+    - "sudo apt-get install golang-go"
+    - "sudo apt-get install webhook"
+    - "wget https://github.com/adnanh/webhook/releases/download/2.8.0/webhook-linux-amd64.tar.gz"
+    - "tar -xzf webhook-linux-amd64.tar.gz"
+    - "sudo snap install go --classic"
+    - "go install github.com/adnanh/webhook@latest"
+    - chmod u+x restart_container.sh"
+    - echo $PATH"
+    - "sudo vim /etc/webhook.conf"
+        - [
+            - {
+                - "id": "re_deploy",
+                - "execute-command": "/home/ubuntu/re_deploy.sh",
+                - "command-working-directory": "/var/webhook"
+            - }
+        - ]
+    - "sudo systemctl restart webhook.service"
+    - "sudo systemctl status webhook.service"    
+    - "webhook -hooks /etc/webhook.conf -verbose"
+
+- How to configure GitHub or DockerHub to message the listener:
+    - In my DockerHub repo, selected "webhook" 
+    - Enter webhook URL "https://54.235.252.252:9000/hooks/re_deploy"
+    - Click "create"
 
