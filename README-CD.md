@@ -6,7 +6,11 @@
     - Make a change then commit using "git commit -a -m "new tag"
     - Creating tag for my commit using "git tag -a v1.3.0 -m "new tag"
     - Push the tag to the remote repo using "git push origin v1.3.0"
+<<<<<<< HEAD
 - Behavior of GitHub workflow 
+=======
+- Behavior of GitHub workflow
+>>>>>>> 6f8e1eeca4a98c634593c22f13ec07b1107cc546
     - Builds a Docker image of the application using the Dockerfile in the root of the repository.
     - Tags the Docker image with the version number from the tag that triggered the workflow.
     - Pushes the Docker image to Docker Hub, using a tag that matches the version number of the tag that triggered the workflow.
